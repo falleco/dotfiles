@@ -1,0 +1,25 @@
+key_bindings:
+  - { key: Space, mods: Control, chars: "\x00" }
+  - { key: N, mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"] } }
+
+font:
+  normal:
+    # family: Source Code Pro
+    family: Fira Code
+
+  bold:
+    # family: Source Code Pro
+    family: Fira Code Bold
+
+  italic:
+    # family: Source Code Pro
+    family: Fira Code Italic
+
+  size: 12.0
+
+shell:
+  program: /usr/local/bin/zsh
+  args:
+    - --login
+
+hide_cursor_when_typing: true

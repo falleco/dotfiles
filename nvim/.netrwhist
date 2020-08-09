@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/alexignez/zk/mobileapp/app/domain/media'
+let g:netrw_dirhist_3='/Users/alexignez'
+let g:netrw_dirhist_2='/Users/alexignez/my-workspace/projects/signature-editor/src/lib'
+let g:netrw_dirhist_1='/Users/alexignez/my-workspace/projects/signature-editor/src'
+let g:netrw_dirhist_0='/Users/alexignez/my-workspace/projects/signature-editor'
+let g:netrw_dirhist_9='/Users/alexignez'
+let g:netrw_dirhist_8='/Users/alexignez/my-workspace/projects/signature-editor'
+let g:netrw_dirhist_7='/Users/alexignez/my-workspace/projects'
+let g:netrw_dirhist_6='/Users/alexignez/my-workspace/projects/signature-editor'
+let g:netrw_dirhist_5='/Users/alexignez/zk/mobileapp'
