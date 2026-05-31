@@ -1,6 +1,9 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -12,7 +15,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf fzf ansible kubectx kubectl nvm yarn npm colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git asdf fzf ansible kubectx kubectl nvm yarn npm colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,7 +110,7 @@ eval $(thefuck --alias)
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
-alias cd="z"
+#alias cd="z"
 
 # history setup
 #HISTFILE=$HOME/.zhistory
@@ -138,8 +141,17 @@ export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
 
 export NARGO_HOME="$HOME/.nargo"
 export PATH="$PATH:$NARGO_HOME/bin"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
 
 
 #export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/helm@3/bin:$PATH"

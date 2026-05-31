@@ -215,7 +215,7 @@ if.app-name-regex-substring = '^wezterm-gui$'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
@@ -229,8 +229,13 @@ run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = 'move-node-to-workspace 9'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-id = 'com.granola.app'
 run = 'move-node-to-workspace 9'
+
