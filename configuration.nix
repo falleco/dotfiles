@@ -41,6 +41,7 @@
       "sdkman-cli"
       "lua"
       "starship"
+      "bat"
     ];
     taps = [
       "FelixKratz/formulae"

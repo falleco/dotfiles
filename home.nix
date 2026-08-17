@@ -34,6 +34,8 @@ in
     terminal-notifier
     nerd-fonts.fira-code       # the font everything renders in
     fnm                        # fast node manager, NVM alternative
+    eza                        # better ls
+    htop                       # better top
   ];
   fonts.fontconfig.enable = true;
 
@@ -81,6 +83,8 @@ in
       m = "git switch main";
       cc = "claude --dangerously-skip-permissions";
       co = "codex --full-auto";
+      ls = "eza --color=always --long --git --icons=always --no-time --no-user --no-permissions";
+      cat = "bat";
     };
   };
 

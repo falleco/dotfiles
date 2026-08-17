@@ -10,6 +10,17 @@ wezterm.on("update-right-status", function(window, pane)
     window:set_right_status(name or "")
 end)
 
+wezterm.on("gui-startup", function(cmd)
+    if cmd then
+        wezterm.mux.spawn_window(cmd)
+        return
+    end
+
+    wezterm.mux.spawn_window({
+        args = {"/opt/homebrew/bin/herdr"}
+    })
+end)
+
 return {
     default_cursor_style = "BlinkingBlock",
     -- color_scheme = "Poimandres",
