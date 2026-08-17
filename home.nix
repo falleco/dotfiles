@@ -10,6 +10,7 @@ in
   home.stateVersion = "24.11";
   home.packages = with pkgs; [
     # cli i use constantly
+    zsh
     ripgrep   # fast search
     fd        # fast find
     fzf       # fuzzy finder
@@ -22,20 +23,15 @@ in
     ripgrep
     fd
     flashspace            # custom workspace management, allows switching between workspaces with a keyboard shortcut
-    opensuperwhisper
     wakeonlan
-    "sdkman-cli"
-    pillow
-    imagemagic
+    imagemagick
     ngrok
-    stripe
     gh
     cocoapods
-    "1password-cli"
     sops
     age
     terminal-notifier
-    nerd-fonts.hack       # the font everything renders in
+    nerd-fonts.fira-code       # the font everything renders in
   ];
   fonts.fontconfig.enable = true;
   home.sessionVariables.EDITOR = "nvim";
@@ -74,6 +70,12 @@ in
   # Edit-in-place: the real file stays in my repo, ~/.config just points at it.
   home.file.".config/wezterm".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/wezterm";
+  home.file.".config/sketchybar".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/sketchybar";
+  home.file.".config/borders".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/borders";
+  home.file.".config/htop".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/htop";
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/nvim";
   home.file.".config/herdr".source =

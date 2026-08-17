@@ -23,24 +23,34 @@
     dock.autohide = true;
     finder.FXPreferredViewStyle = "Nlsv";  # list view by default
     finder.CreateDesktop = false;          # clean desktop
-    # trackpad.Clicking = true;              # tap to click
   };
   nix-homebrew = {
     enable = true;
+    # autoMigrate = true; # If you are comming from an existing brew setup
     inherit user;
   };
   homebrew = {
     enable = true;
-    # onActivation.cleanup = "zap";  # remove anything not listed here
+    onActivation.cleanup = "zap";  # remove anything not listed here
     onActivation.autoUpdate = true;
     onActivation.extraFlags = [ "--force" ];
     brews = [
       "herdr"
+      "stripe"
+      "sketchybar"
+      "sdkman-cli"
+      "lua"
+    ];
+    taps = [
+      "FelixKratz/formulae"
+      "sdkman/tap"
     ];
     casks = [
       "wezterm"
+      "1password-cli"
       "claude-code"
       "codex"
+      "my-monkeys/tap/opensuperwhisper"
     ];
   };
 }
