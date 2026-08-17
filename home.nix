@@ -5,6 +5,7 @@ let
   androidSdk = "${config.home.homeDirectory}/Library/Android/sdk";
   nodeVersion = "24.16.0";
   agentDeviceVersion = "0.20.9";
+  sbarLuaAbi = lib.versions.majorMinor pkgs.sbarlua.luaModule.version;
   noMistakes = pkgs.callPackage ./packages/no-mistakes.nix { };
 in
 
@@ -135,6 +136,8 @@ in
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/wezterm";
   home.file.".config/sketchybar".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/sketchybar";
+  home.file.".local/lib/lua/sketchybar.so".source =
+    "${pkgs.sbarlua}/lib/lua/${sbarLuaAbi}/sketchybar.so";
   home.file.".config/borders".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/borders";
   home.file.".config/htop".source =

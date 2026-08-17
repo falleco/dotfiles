@@ -39,7 +39,7 @@
       "stripe"
       "sketchybar"
       "sdkman-cli"
-      "lua"
+      "lua" # runtime used by the Homebrew SketchyBar service; SbarLua comes from Nix
       "starship"
     ];
     taps = [
