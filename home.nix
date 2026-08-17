@@ -1,8 +1,11 @@
-{ config, pkgs, user, ... }:
+{ config, lib, pkgs, user, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/.dotfiles";
   androidSdk = "${config.home.homeDirectory}/Library/Android/sdk";
+  nodeVersion = "24.16.0";
+  agentDeviceVersion = "0.20.9";
+  noMistakes = pkgs.callPackage ./packages/no-mistakes.nix { };
 in
 
 {
@@ -34,14 +37,19 @@ in
     terminal-notifier
     nerd-fonts.fira-code       # the font everything renders in
     fnm                        # fast node manager, NVM alternative
+    pnpm                       # fast, disk-efficient Node.js package manager
     eza                        # better ls
     htop                       # better top
+    noMistakes                 # AI-driven validation gate for Git pushes
+    bat                        # better cat
   ];
   fonts.fontconfig.enable = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";
     ANDROID_HOME = androidSdk;
+    NO_MISTAKES_NO_UPDATE_CHECK = "1";
+    NO_MISTAKES_TELEMETRY = "0";
   };
 
   home.sessionPath = [
@@ -51,6 +59,27 @@ in
     "${androidSdk}/tools/bin"
     "${androidSdk}/emulator"
   ];
+
+  # Keep the default fnm runtime and the agent-device version consistent.
+  home.activation.installAgentDevice = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    (
+      export FNM_LOGLEVEL="quiet"
+
+      eval "$(${pkgs.fnm}/bin/fnm env --shell bash)"
+      ${pkgs.fnm}/bin/fnm install "${nodeVersion}" --progress never
+      ${pkgs.fnm}/bin/fnm default "${nodeVersion}"
+      ${pkgs.fnm}/bin/fnm use "${nodeVersion}"
+
+      installed_version="$(
+        npm list --global --depth=0 --json 2>/dev/null |
+          ${pkgs.jq}/bin/jq -r '.dependencies["agent-device"].version // empty'
+      )"
+
+      if [ "$installed_version" != "${agentDeviceVersion}" ]; then
+        npm install --global "agent-device@${agentDeviceVersion}" --no-audit --no-fund
+      fi
+    )
+  '';
 
   programs.fzf = {
     enable = true;
