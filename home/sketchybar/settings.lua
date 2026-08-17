@@ -8,10 +8,6 @@ return {
         main = {
             icon = icons.rebel,
             color = colors.rainbow[1]
-        },
-        service = {
-            icon = icons.nuke,
-            color = 0xffff9e64
         }
     },
     bar = {

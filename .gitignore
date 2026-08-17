@@ -10,3 +10,4 @@ __pycache__
 gcloud/
 jgit/
 simple-update-notifier/
+tmux/plugins/

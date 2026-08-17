@@ -7,19 +7,22 @@ echo "Installing commandline tools..."
 xcode-select --install
 
 # Essentials
+brew tap FelixKratz/formulae
 brew install lua
-brew install sketchybar --cask FelixKratz/formulae
-brew install wezterm
+brew install sketchybar
+brew install --cask wezterm
 brew install borders
 brew install --cask nikitabobko/tap/aerospace
 brew install wget
 brew install jq
 brew install fzf
+brew install ripgrep
+brew install fd
 
 # Nice to have
 brew install --cask raycast
 brew install --cask 1password
-brew install --cask btop
+brew install btop
 brew install switchaudio-osx
 brew install nowplaying-cli
 brew install thefuck

@@ -57,6 +57,12 @@ return {
 				domain = "CurrentPaneDomain",
 			}),
 		},
+		-- pi.dev better intetration
+		{
+			key = 'Enter',
+			mods = 'ALT',
+			action = act.SendString('\x1b[13;3u'),
+		},
 	},
 
 	key_tables = {

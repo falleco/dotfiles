@@ -1,12 +1,9 @@
 #!/usr/bin/env lua
 
--- Determine the configuration directory
 local config_dir = os.getenv("HOME") .. "/.config/sketchybar"
 
--- Prepend the configuration directory to the module search paths
 package.path = config_dir .. "/?.lua;" .. config_dir .. "/?/init.lua;" .. package.path
 package.cpath = config_dir .. "/?.so;" .. package.cpath
 
--- Now require the modules
 require("helpers")
 require("init")

@@ -12,7 +12,8 @@ end)
 
 return {
     default_cursor_style = "BlinkingBlock",
-    color_scheme = "Poimandres",
+    -- color_scheme = "Poimandres",
+    color_scheme = "rose-pine-moon",
     colors = {
         cursor_bg = "#A6ACCD",
         cursor_border = "#A6ACCD",
@@ -24,7 +25,8 @@ return {
     }),
     font_size = 15,
     line_height = 1,
-    window_background_opacity = 0.9,
+    window_background_opacity = 0.8,
+    macos_window_background_blur = 10,
     -- tab bar
     use_fancy_tab_bar = false,
     tab_bar_at_bottom = true,
@@ -45,5 +47,7 @@ return {
     -- key bindings
     leader = mappings.leader,
     keys = mappings.keys,
-    key_tables = mappings.key_tables
+    key_tables = mappings.key_tables,
+    -- For pi.dev
+    enable_kitty_keyboard = true
 }
