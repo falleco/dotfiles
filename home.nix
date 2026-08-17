@@ -2,6 +2,7 @@
 
 let
   dotfiles = "${config.home.homeDirectory}/.dotfiles";
+  androidSdk = "${config.home.homeDirectory}/Library/Android/sdk";
 in
 
 {
@@ -32,9 +33,27 @@ in
     age
     terminal-notifier
     nerd-fonts.fira-code       # the font everything renders in
+    fnm                        # fast node manager, NVM alternative
   ];
   fonts.fontconfig.enable = true;
-  home.sessionVariables.EDITOR = "nvim";
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    ANDROID_HOME = androidSdk;
+  };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/bin"
+    "${androidSdk}/platform-tools"
+    "${androidSdk}/tools"
+    "${androidSdk}/tools/bin"
+    "${androidSdk}/emulator"
+  ];
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.zsh = {
     enable = true;
@@ -42,8 +61,19 @@ in
     syntaxHighlighting.enable = true;  # commands turn green when valid
     initContent = ''
       bindkey '^f' autosuggest-accept
+
+      # SDK Man Config
+      if command -v brew >/dev/null 2>&1; then
+        export SDKMAN_DIR="$(brew --prefix sdkman-cli)/libexec"
+        [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] &&
+          source "$SDKMAN_DIR/bin/sdkman-init.sh"
+      fi
+
+      eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd --shell zsh)"
     '';
     shellAliases = {
+      "vim" = "nvim";
+      "nvm" = "fnm";
       ".." = "cd ..";
       add = "git add .";
       push = "git push";

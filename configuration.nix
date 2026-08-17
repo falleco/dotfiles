@@ -40,6 +40,7 @@
       "sketchybar"
       "sdkman-cli"
       "lua"
+      "starship"
     ];
     taps = [
       "FelixKratz/formulae"
@@ -51,6 +52,7 @@
       "claude-code"
       "codex"
       "my-monkeys/tap/opensuperwhisper"
+      "raycast"
     ];
   };
 }
