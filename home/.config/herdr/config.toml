@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 prefix = "alt+a"
 focus_pane_left  = "prefix+h"

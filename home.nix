@@ -5,6 +5,7 @@ let
   androidSdk = "${config.home.homeDirectory}/Library/Android/sdk";
   nodeVersion = "24.16.0";
   agentDeviceVersion = "0.20.9";
+  piCodingAgentVersion = "0.84.2";
   sbarLuaAbi = lib.versions.majorMinor pkgs.sbarlua.luaModule.version;
   noMistakes = pkgs.callPackage ./packages/no-mistakes.nix { };
 in
@@ -61,8 +62,8 @@ in
     "${androidSdk}/emulator"
   ];
 
-  # Keep the default fnm runtime and the agent-device version consistent.
-  home.activation.installAgentDevice = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  # Keep the default fnm runtime and global Node CLI versions consistent.
+  home.activation.installGlobalNodeTools = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     (
       export FNM_LOGLEVEL="quiet"
 
@@ -71,13 +72,24 @@ in
       ${pkgs.fnm}/bin/fnm default "${nodeVersion}"
       ${pkgs.fnm}/bin/fnm use "${nodeVersion}"
 
-      installed_version="$(
-        npm list --global --depth=0 --json 2>/dev/null |
+      global_packages="$(npm list --global --depth=0 --json 2>/dev/null || true)"
+      agent_device_installed="$(
+        printf '%s' "$global_packages" |
           ${pkgs.jq}/bin/jq -r '.dependencies["agent-device"].version // empty'
       )"
+      pi_installed="$(
+        printf '%s' "$global_packages" |
+          ${pkgs.jq}/bin/jq -r '.dependencies["@earendil-works/pi-coding-agent"].version // empty'
+      )"
 
-      if [ "$installed_version" != "${agentDeviceVersion}" ]; then
+      if [ "$agent_device_installed" != "${agentDeviceVersion}" ]; then
         npm install --global "agent-device@${agentDeviceVersion}" --no-audit --no-fund
+      fi
+
+      if [ "$pi_installed" != "${piCodingAgentVersion}" ]; then
+        npm install --global --ignore-scripts \
+          "@earendil-works/pi-coding-agent@${piCodingAgentVersion}" \
+          --no-audit --no-fund
       fi
     )
   '';
