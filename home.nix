@@ -173,8 +173,14 @@ in
 
   home.file.".claude/CLAUDE.md".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
+  home.file.".claude/skills".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.agents/skills";
   home.file.".codex/AGENTS.md".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
   home.file.".config/opencode/AGENTS.md".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
+  home.file.".agents/AGENTS.md".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
+  home.file.".agents/skills".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.agents/skills";
 }
