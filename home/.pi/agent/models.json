@@ -12,6 +12,18 @@
           "contextWindow": 272000
         }
       }
+    },
+    "ollama": {
+      "baseUrl": "http://192.168.70.76:11434/v1",
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "compat": {
+        "supportsDeveloperRole": false
+      },
+      "models": [
+        { "id": "qwen3.8:latest" },
+        { "id": "orcarouter/Qwen3.8-27B-Uncensored" }
+      ]
     }
   }
 }

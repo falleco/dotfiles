@@ -20,7 +20,7 @@
     "npm:pi-powerline-footer"
   ],
   "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-pro",
+  "defaultProvider": "ollama",
+  "defaultModel": "orcarouter/Qwen3.8-27B-Uncensored",
   "defaultThinkingLevel": "high"
 }
