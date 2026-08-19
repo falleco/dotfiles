@@ -22,7 +22,9 @@
       },
       "models": [
         { "id": "qwen3.8:latest" },
-        { "id": "orcarouter/Qwen3.8-27B-Uncensored" }
+        { "id": "orcarouter/Qwen3.8-27B-Uncensored" },
+        { "id": "huihui_ai/gpt-oss-abliterated:latest" },
+        { "id": "gpt-oss:20b" }
       ]
     }
   }

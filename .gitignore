@@ -28,5 +28,15 @@ result-*
 # Pi Calm is a runtime toggle; its local state file is never tracked
 /home/.pi/agent/calm
 
+# omp
+/home/.omp/agent/blobs
+/home/.omp/agent/sessions
+/home/.omp/agent/terminal-sessions
+/home/.omp/agent/**/*.lock
+/home/.omp/agent/**/*.db
+/home/.omp/agent/**/*.db-shm
+/home/.omp/agent/**/*.db-wal
+/home/.omp/agent/last-changelog-version
+
 # no-mistakes local validation state - never commit in this public repo
 .no-mistakes/

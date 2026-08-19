@@ -41,6 +41,7 @@
       "sdkman-cli"
       "lua" # runtime used by the Homebrew SketchyBar service; SbarLua comes from Nix
       "starship"
+      "can1357/tap/omp"
     ];
     taps = [
       "FelixKratz/formulae"

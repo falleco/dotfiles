@@ -1,0 +1,12 @@
+providers:
+  ollama-remote:
+    baseUrl: http://192.168.70.76:11434/v1
+    api: openai-completions
+    apiKey: none
+    compat:
+      supportsDeveloperRole: false
+    models:
+      - id: qwen3.8:latest
+      - id: orcarouter/Qwen3.8-27B-Uncensored
+      - id: huihui_ai/gpt-oss-abliterated:latest
+      - id: gpt-oss:20b

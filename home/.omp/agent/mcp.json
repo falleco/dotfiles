@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/can1357/oh-my-pi/main/packages/coding-agent/src/config/mcp-schema.json",
+  "mcpServers": {
+    "blender-mcp": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["blender-mcp"]
+    },
+    "godot-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@coding-solo/godot-mcp"]
+    }
+  }
+}

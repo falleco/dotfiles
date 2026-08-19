@@ -52,6 +52,7 @@ in
     ANDROID_HOME = androidSdk;
     NO_MISTAKES_NO_UPDATE_CHECK = "1";
     NO_MISTAKES_TELEMETRY = "0";
+    HOMEBREW_NO_ENV_HINTS = "1";
   };
 
   home.sessionPath = [
@@ -162,6 +163,8 @@ in
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.claude/settings.json";
 
   # Keep Pi's credential and runtime state local by linking only authored files and directories.
+  home.file.".pi/agent/AGENTS.md".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
   home.file.".pi/agent/skills".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.agents/skills";
   home.file.".pi/agent/themes".source =
@@ -172,6 +175,20 @@ in
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.pi/agent/models.json";
   home.file.".pi/agent/settings.json".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.pi/agent/settings.json";
+
+  # OMP
+  home.file.".omp/agent/AGENTS.md".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
+  home.file.".omp/agent/skills".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.agents/skills";
+  home.file.".omp/agent/extensions".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.omp/agent/extensions";
+  home.file.".omp/agent/models.yml".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.omp/agent/models.yml";
+  home.file.".omp/agent/mcp.json".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.omp/agent/mcp.json";
+  home.file.".omp/agent/config.yml".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.omp/agent/config.yml";
 
   home.file.".claude/CLAUDE.md".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";

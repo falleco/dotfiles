@@ -1,0 +1,12 @@
+providers: 
+  {}
+setupVersion: 1
+modelRoles: 
+  commit: deepseek/deepseek-v4-pro:max
+  tiny: deepseek/deepseek-v4-pro
+  advisor: anthropic/claude-fable-5:high
+  task: deepseek/deepseek-v4-pro
+  smol: openai-codex/gpt-5.4-mini
+  default: ollama-remote/orcarouter/Qwen3.8-27B-Uncensored
+disabledExtensions: 
+  - extension-module:handoff-worktree

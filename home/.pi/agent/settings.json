@@ -21,6 +21,6 @@
   ],
   "lastChangelogVersion": "0.84.2",
   "defaultProvider": "ollama",
-  "defaultModel": "orcarouter/Qwen3.8-27B-Uncensored",
+  "defaultModel": "qwen3.8:latest",
   "defaultThinkingLevel": "high"
 }
