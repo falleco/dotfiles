@@ -43,6 +43,7 @@
       "starship"
       "can1357/tap/omp"
       "vjeantet/tap/alerter"
+      "television"
     ];
     taps = [
       "FelixKratz/formulae"

@@ -19,6 +19,18 @@ let
       source = "yankewei/herdr-focus-notify";
       ref = "f931db5090ded54086e365dfb8db896c3a3e1a05";
     }
+    {
+      id = "termscope";
+      version = "0.3.0";
+      source = "iurysza/termscope";
+      ref = "328a777796e3e1a214da1bb6da79e4bfdf6dfabe";
+    }
+    {
+      id = "tab-smart-rename";
+      version = "0.2.0";
+      source = "iurysza/herdr-tab-smart-rename";
+      ref = "b646cc32799801a23cc9b23d298879e602037e2b";
+    }
   ];
   sbarLuaAbi = lib.versions.majorMinor pkgs.sbarlua.luaModule.version;
   noMistakes = pkgs.callPackage ./packages/no-mistakes.nix { };
@@ -53,6 +65,7 @@ in
     terminal-notifier
     nerd-fonts.fira-code       # the font everything renders in
     fnm                        # fast node manager, NVM alternative
+    bun                        # runtime used by the Herdr Smart Rename plugin
     pnpm                       # fast, disk-efficient Node.js package manager
     eza                        # better ls
     htop                       # better top
@@ -120,7 +133,7 @@ in
         exit 1
       fi
 
-      export PATH="${lib.makeBinPath [ pkgs.cargo pkgs.git pkgs.rustc ]}:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+      export PATH="${lib.makeBinPath [ pkgs.bun pkgs.cargo pkgs.git pkgs.rustc ]}:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
       ${lib.concatMapStringsSep "\n" (plugin: ''
         plugin_state="$(

@@ -29,3 +29,15 @@ if [ -n "$tab_id" ]; then
 fi
 '''
 description = "Open files tab"
+
+[[keys.command]]
+key = "ctrl+shift+a"
+type = "plugin_action"
+command = "termscope.open"
+description = "visible-screen file picker"
+
+[[keys.command]]
+key = "ctrl+e"
+type = "plugin_action"
+command = "termscope.open-links"
+description = "visible-screen link picker"
