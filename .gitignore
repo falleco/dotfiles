@@ -15,6 +15,9 @@ tmux/plugins/
 home/.config/herdr/*.log
 home/.config/herdr/session.json
 home/.config/herdr/*.sock
+home/.config/herdr/.plugins.lock
+home/.config/herdr/plugins/
+home/.config/herdr/plugins.json
 
 # macOS + nix build noise
 .DS_Store

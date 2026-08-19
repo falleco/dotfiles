@@ -7,6 +7,6 @@ modelRoles:
   advisor: anthropic/claude-fable-5:high
   task: deepseek/deepseek-v4-pro
   smol: openai-codex/gpt-5.4-mini
-  default: ollama-remote/orcarouter/Qwen3.8-27B-Uncensored
+  default: deepseek/deepseek-v4-pro:high
 disabledExtensions: 
   - extension-module:handoff-worktree

@@ -42,6 +42,7 @@
       "lua" # runtime used by the Homebrew SketchyBar service; SbarLua comes from Nix
       "starship"
       "can1357/tap/omp"
+      "vjeantet/tap/alerter"
     ];
     taps = [
       "FelixKratz/formulae"

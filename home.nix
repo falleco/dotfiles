@@ -6,6 +6,20 @@ let
   nodeVersion = "24.16.0";
   agentDeviceVersion = "0.20.9";
   piCodingAgentVersion = "0.84.2";
+  herdrPlugins = [
+    {
+      id = "herdr-sidebar";
+      version = "0.7.0";
+      source = "alexarthurs/herdr-sidebar/plugins/herdr-sidebar";
+      ref = "dd5cc28aeae5860cffc11080c7613bf829286c72";
+    }
+    {
+      id = "herdr-focus-notify";
+      version = "0.4.0";
+      source = "yankewei/herdr-focus-notify";
+      ref = "f931db5090ded54086e365dfb8db896c3a3e1a05";
+    }
+  ];
   sbarLuaAbi = lib.versions.majorMinor pkgs.sbarlua.luaModule.version;
   noMistakes = pkgs.callPackage ./packages/no-mistakes.nix { };
 in
@@ -95,6 +109,43 @@ in
     )
   '';
 
+  # Herdr stores installed plugins as user state, so make the declared version
+  # part of Home Manager activation. Reinstalling replaces a managed checkout.
+  home.activation.installHerdrPlugins = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    (
+      herdr_bin="/opt/homebrew/opt/herdr/bin/herdr"
+
+      if [ ! -x "$herdr_bin" ]; then
+        echo "Herdr is not installed at $herdr_bin" >&2
+        exit 1
+      fi
+
+      export PATH="${lib.makeBinPath [ pkgs.cargo pkgs.git pkgs.rustc ]}:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+      ${lib.concatMapStringsSep "\n" (plugin: ''
+        plugin_state="$(
+          "$herdr_bin" plugin list --plugin "${plugin.id}" --json
+        )"
+        installed_version="$(
+          printf '%s' "$plugin_state" |
+            ${pkgs.jq}/bin/jq -r '.result.plugins[0].version // empty'
+        )"
+        installed_commit="$(
+          printf '%s' "$plugin_state" |
+            ${pkgs.jq}/bin/jq -r '.result.plugins[0].source.resolved_commit // empty'
+        )"
+
+        if [ "$installed_version" != "${plugin.version}" ] || \
+           [ "$installed_commit" != "${plugin.ref}" ]; then
+          run "$herdr_bin" plugin install \
+            "${plugin.source}" \
+            --ref "${plugin.ref}" \
+            --yes
+        fi
+      '') herdrPlugins}
+    )
+  '';
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -157,8 +208,10 @@ in
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/htop";
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/nvim";
-  home.file.".config/herdr".source =
-    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/herdr";
+  # Only the authored config belongs in the repo. Herdr keeps plugins, session
+  # state, logs, and sockets beside it under ~/.config/herdr at runtime.
+  home.file.".config/herdr/config.toml".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.config/herdr/config.toml";
   home.file.".claude/settings.json".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/.claude/settings.json";
 
