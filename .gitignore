@@ -27,6 +27,7 @@ result-*
 # Pi credentials and Home Manager adoption backups stay local
 /home/.pi/agent/auth.json
 /home/.pi/agent/**/*.backup
+/home/.claude/**/*.backup
 
 # Pi Calm is a runtime toggle; its local state file is never tracked
 /home/.pi/agent/calm
@@ -41,5 +42,3 @@ result-*
 /home/.omp/agent/**/*.db-wal
 /home/.omp/agent/last-changelog-version
 
-# no-mistakes local validation state - never commit in this public repo
-.no-mistakes/

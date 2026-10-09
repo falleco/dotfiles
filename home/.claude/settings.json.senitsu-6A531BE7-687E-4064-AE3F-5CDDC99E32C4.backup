@@ -1,0 +1,57 @@
+{
+  "hooks" : {
+    "PermissionRequest" : [
+      {
+        "hooks" : [
+          {
+            "command" : "'/Users/falleco/projects/notifai/build/Senitsu.app/Contents/MacOS/Senitsu' --integration-hook 'claude-code'",
+            "statusMessage" : "Senitsu integration: claude-code",
+            "timeout" : 600,
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "SessionStart" : [
+      {
+        "hooks" : [
+          {
+            "command" : "'/Users/falleco/projects/notifai/build/Senitsu.app/Contents/MacOS/Senitsu' --integration-hook 'claude-code'",
+            "statusMessage" : "Senitsu integration: claude-code",
+            "timeout" : 3,
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "Stop" : [
+      {
+        "hooks" : [
+          {
+            "command" : "'/Users/falleco/projects/notifai/build/Senitsu.app/Contents/MacOS/Senitsu' --integration-hook 'claude-code'",
+            "statusMessage" : "Senitsu integration: claude-code",
+            "timeout" : 3,
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "StopFailure" : [
+      {
+        "hooks" : [
+          {
+            "command" : "'/Users/falleco/projects/notifai/build/Senitsu.app/Contents/MacOS/Senitsu' --integration-hook 'claude-code'",
+            "statusMessage" : "Senitsu integration: claude-code",
+            "timeout" : 3,
+            "type" : "command"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine" : {
+    "command" : "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name'); used=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); if [ -n \"$used\" ]; then printf \"%s | ctx: %.0f%% used\" \"$model\" \"$used\"; else printf \"%s\" \"$model\"; fi",
+    "type" : "command"
+  },
+  "theme" : "dark-ansi"
+}

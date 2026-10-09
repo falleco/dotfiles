@@ -44,6 +44,11 @@
       "can1357/tap/omp"
       "vjeantet/tap/alerter"
       "television"
+      "ffmpeg"
+      "ansible"
+      "helm"
+      "opentofu"
+      "opencode"
     ];
     taps = [
       "FelixKratz/formulae"
@@ -56,6 +61,9 @@
       "codex"
       "my-monkeys/tap/opensuperwhisper"
       "raycast"
+      "tigervnc"
+      "monitorcontrol"
+      "font-sketchybar-app-font" # app icon ligatures used by the SketchyBar spaces item
     ];
   };
 }

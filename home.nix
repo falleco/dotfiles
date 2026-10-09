@@ -33,7 +33,6 @@ let
     }
   ];
   sbarLuaAbi = lib.versions.majorMinor pkgs.sbarlua.luaModule.version;
-  noMistakes = pkgs.callPackage ./packages/no-mistakes.nix { };
 in
 
 {
@@ -69,7 +68,6 @@ in
     pnpm                       # fast, disk-efficient Node.js package manager
     eza                        # better ls
     htop                       # better top
-    noMistakes                 # AI-driven validation gate for Git pushes
     bat                        # better cat
   ];
   fonts.fontconfig.enable = true;
@@ -77,8 +75,6 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     ANDROID_HOME = androidSdk;
-    NO_MISTAKES_NO_UPDATE_CHECK = "1";
-    NO_MISTAKES_TELEMETRY = "0";
     HOMEBREW_NO_ENV_HINTS = "1";
   };
 
@@ -160,6 +156,11 @@ in
   '';
 
   programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  
+  programs.direnv = {
     enable = true;
     enableZshIntegration = true;
   };

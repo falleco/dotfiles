@@ -11,6 +11,6 @@ brew install --cask sf-symbols
 brew install --cask homebrew/cask-fonts/font-sf-mono
 brew install --cask homebrew/cask-fonts/font-sf-pro
 
-curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.5/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+# sketchybar-app-font is installed declaratively as a Homebrew cask in configuration.nix.
 
 # SbarLua is installed declaratively by Home Manager.

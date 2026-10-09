@@ -1,16 +1,17 @@
 {
+  "collapseChangelog": true,
+  "defaultModel": "qwen3.8:latest",
+  "defaultProvider": "ollama",
+  "defaultThinkingLevel": "high",
+  "extensions": [
+    "/Users/falleco/Library/Application Support/Senitsu/Integrations/pi/senitsu.ts"
+  ],
+  "followUpMode": "all",
+  "hideThinkingBlock": true,
   "images": {
     "blockImages": false
   },
-  "terminal": {
-    "showImages": false
-  },
-  "hideThinkingBlock": true,
-  "quietStartup": true,
-  "theme": "rose-pine-moon",
-  "steeringMode": "all",
-  "followUpMode": "all",
-  "collapseChangelog": true,
+  "lastChangelogVersion": "1.0.0",
   "packages": [
     "npm:pi-web-access",
     "npm:@ryan_nookpi/pi-extension-codex-fast-mode@0.2.6",
@@ -19,8 +20,10 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-powerline-footer"
   ],
-  "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "ollama",
-  "defaultModel": "qwen3.8:latest",
-  "defaultThinkingLevel": "high"
+  "quietStartup": true,
+  "steeringMode": "all",
+  "terminal": {
+    "showImages": false
+  },
+  "theme": "rose-pine-moon"
 }

@@ -1,12 +1,13 @@
-providers: 
+providers:
   {}
-setupVersion: 1
-modelRoles: 
+setupVersion: 2
+modelRoles:
   commit: deepseek/deepseek-v4-pro:max
   tiny: deepseek/deepseek-v4-pro
   advisor: anthropic/claude-fable-5:high
   task: deepseek/deepseek-v4-pro
   smol: openai-codex/gpt-5.4-mini
-  default: deepseek/deepseek-v4-pro:high
-disabledExtensions: 
+disabledExtensions:
   - extension-module:handoff-worktree
+composer:
+  shape: borderless
