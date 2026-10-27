@@ -41,4 +41,10 @@ result-*
 /home/.omp/agent/**/*.db-shm
 /home/.omp/agent/**/*.db-wal
 /home/.omp/agent/last-changelog-version
+*pkgetc*
+
+
+/home/.config/herdr/session-snapshots
+/home/.config/herdr/herdr.sock.agent
+/home/.agents/skills/synced
 

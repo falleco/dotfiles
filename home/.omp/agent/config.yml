@@ -1,5 +1,3 @@
-providers:
-  {}
 setupVersion: 2
 modelRoles:
   commit: deepseek/deepseek-v4-pro:max
@@ -7,6 +5,7 @@ modelRoles:
   advisor: anthropic/claude-fable-5:high
   task: deepseek/deepseek-v4-pro
   smol: openai-codex/gpt-5.4-mini
+  default: ollama-remote/qwen3.8:latest
 disabledExtensions:
   - extension-module:handoff-worktree
 composer:

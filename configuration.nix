@@ -49,6 +49,8 @@
       "helm"
       "opentofu"
       "opencode"
+      "cmake"
+      "protobuf"
     ];
     taps = [
       "FelixKratz/formulae"
@@ -64,6 +66,7 @@
       "tigervnc"
       "monitorcontrol"
       "font-sketchybar-app-font" # app icon ligatures used by the SketchyBar spaces item
+      "gcloud-cli"
     ];
   };
 }

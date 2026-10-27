@@ -36,7 +36,7 @@ return {
     }),
     font_size = 15,
     line_height = 1,
-    window_background_opacity = 0.8,
+    window_background_opacity = 0.95,
     macos_window_background_blur = 10,
     -- tab bar
     use_fancy_tab_bar = false,

@@ -1,6 +1,6 @@
 {
   "collapseChangelog": true,
-  "defaultModel": "qwen3.8:latest",
+  "defaultModel": "orcarouter/Qwen3.8-27B-Uncensored",
   "defaultProvider": "ollama",
   "defaultThinkingLevel": "high",
   "extensions": [
